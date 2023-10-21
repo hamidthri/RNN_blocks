@@ -3,7 +3,6 @@ from rnn_utils import *
 from public_tests import *
 
 def rnn_cell_forward(xt, a_prev, parameters):
-
     Wax = parameters["Wax"]
     Waa = parameters["Waa"]
     Wya = parameters["Wya"]
@@ -18,7 +17,6 @@ def rnn_forward(x, a0, parameters):
     caches = []
     n_x, m, T_x = x.shape
     n_y, n_a = parameters["Wya"].shape
-
     a = np.zeros([n_a, m, T_x])
     y_pred = np.zeros([n_y, m, T_x])
     a_next = a0
@@ -28,6 +26,4 @@ def rnn_forward(x, a0, parameters):
         y_pred[:,:,t] = yt_pred
         caches.append(cache)
     caches = (caches, x)
-
     return a, y_pred, caches
-
